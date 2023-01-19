@@ -36,7 +36,7 @@ namespace MatchingService.Functions
         #region Get
 
         [FunctionName("Matchings_GetById")]
-        public static async Task<IActionResult> GetById([HttpTrigger(AuthorizationLevel.Function, "get", Route = "matchings/{id}")] HttpRequest req,
+        public static async Task<IActionResult> GetById([HttpTrigger(AuthorizationLevel.Anonymous, "get", Route = "matchings/{id}")] HttpRequest req,
                                                          string id,
                                                          ILogger log)
         {
@@ -51,7 +51,7 @@ namespace MatchingService.Functions
         }
 
         [FunctionName("Matchings_GetByUserId")]
-        public static async Task<IActionResult> GetByUserId([HttpTrigger(AuthorizationLevel.Function, "get", Route = "matchings/user/{userId}")] HttpRequest req,
+        public static async Task<IActionResult> GetByUserId([HttpTrigger(AuthorizationLevel.Anonymous, "get", Route = "matchings/user/{userId}")] HttpRequest req,
                                                              string userId,
                                                              ILogger log)
         {
@@ -65,7 +65,7 @@ namespace MatchingService.Functions
         }
 
         [FunctionName("Matchings_GetByDestinationId")]
-        public static async Task<IActionResult> GetByDestinationId([HttpTrigger(AuthorizationLevel.Function, 
+        public static async Task<IActionResult> GetByDestinationId([HttpTrigger(AuthorizationLevel.Anonymous, 
                                                                                 "get", 
                                                                                 Route = "matchings/destination/{destinationId}")] HttpRequest req,
                                                                     string destinationId,
