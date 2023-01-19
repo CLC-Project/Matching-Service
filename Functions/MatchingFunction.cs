@@ -75,9 +75,9 @@ namespace MatchingService.Functions
 
             var collection = GetCollection();
             var entries = await collection.FindAsync(x => x.Destination.Id == ObjectId.Parse(destinationId));
-            var result = await entries.ToListAsync();
+            var result = await entries.FirstOrDefaultAsync();
 
-            return new OkObjectResult(result.Select(x => new MatchingDto(x)));
+            return new OkObjectResult(result is null ? result : new MatchingDto(result));
         }
 
         #endregion
